@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 //import { NavController } from 'ionic-angular';
-import { ActionSheetController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
+	
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  /*constructor(public alerCtrl: AlertController) { }
+   constructor(public alerCtrl: AlertController) { }
     
-  doAlert() {
+  display() {
     let alert = this.alerCtrl.create({
-      title: 'New Friend!',
-      message: 'Your friend, Obi wan Kenobi, just approved your friend request!',
+      title: 'Login',
+      message: 'Login Success...',
       buttons: ['Ok']
     });
     alert.present();
@@ -39,36 +39,6 @@ export class HomePage {
       ]
     });
     confirm.present()
-  }*/
-  constructor(public actionSheetCtrl: ActionSheetController) {
   }
-  
-   openMenu() {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Modify your album',
-      buttons: [
-        {
-          text: 'Destructive',
-          role: 'destructive',
-          handler: () => {
-            console.log('Destructive clicked');
-          }
-        },{
-          text: 'Archive',
-          handler: () => {
-            console.log('Archive clicked');
-          }
-        },{
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
-  }
-  
-  
+    
 }
