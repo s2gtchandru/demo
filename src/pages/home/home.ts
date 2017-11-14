@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 //import { NavController } from 'ionic-angular';
-//import { AlertController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -8,34 +8,38 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() { this.initializeItems(); }
+  constructor(public alerCtrl: AlertController) { }
     
-  initializeItems() {
-    this.items = [
-      'Chandru',
-      'Chandraa',
-      'Murali',
-      'Prasanth'
-     
-    ];
-  }
-
-  getItems(ev) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set val to the value of the ev target
-    var val = ev.target.value;
-
-    // if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
+  doAlert() {
+    let alert = this.alerCtrl.create({
+      title: 'New Friend!',
+      message: 'Your friend, Obi wan Kenobi, just approved your friend request!',
+      buttons: ['Ok']
+    });
+    alert.present();
   }
   
-  
+  doConfirm() {
+    let confirm = this.alerCtrl.create({
+      title: 'Use this lightsaber?',
+      message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present()
+  }
   
   
 }
